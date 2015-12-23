@@ -54,7 +54,8 @@ class Address(object):
 
     GMAPS_KEY_FILE = './gmapskey.key'
     try:
-        GMAPS_KEY = open(GMAPS_KEY_FILE).read()
+        GMAPS_KEY = open(GMAPS_KEY_FILE).read().strip()
+
         gmaps = googlemaps.Client(key=GMAPS_KEY)
     except IOError:
         print ('Fatal Error: Not gmaps key found in {}'.format(GMAPS_KEY_FILE))
